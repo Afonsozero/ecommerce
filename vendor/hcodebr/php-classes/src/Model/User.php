@@ -87,12 +87,12 @@ class User extends Model {
 
 				$sql = new Sql();
 
-		$results = $sql->select("CALL sp_users_save(:desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+		$results = $sql->select("CALL sp_users_save(:desperson, :deslogin, :nrphone, :desemail, :despassword, :inadmin)", array(
 			":desperson"=>$this->getdesperson(),
 			":deslogin"=>$this->getdeslogin(),
-			":despassword"=>$this->getdespassword(),
+			":nrphone"=>$this->getdesnrphone(),
 			":desemail"=>$this->getdesemail(),
-			":nrphone"=>$this->getnrphone(),
+			":despassword"=>$this->getdespassword(),
 			":inadmin"=>$this->getinadmin()
 		));
 		$this->setData($results[0]);
@@ -116,13 +116,13 @@ class User extends Model {
 
 		$sql = new Sql();
 
-		$results = $sql->select("CALL sp_usersupdate_save(:iduser, :desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin)", array(
+		$results = $sql->select("CALL sp_usersupdate_save(:desperson, :deslogin, :nrphone, :desemail, :despassword, :inadmin)", array(
 			":iduser"=>$this->getiduser(),
 			":desperson"=>$this->getdesperson(),
 			":deslogin"=>$this->getdeslogin(),
-			":despassword"=>$this->getdespassword(),
+			":nrphone"=>$this->getdesnrphone(),
 			":desemail"=>$this->getdesemail(),
-			":nrphone"=>$this->getnrphone(),
+			":despassword"=>$this->getdespassword(),
 			":inadmin"=>$this->getinadmin()
 		));
 		
